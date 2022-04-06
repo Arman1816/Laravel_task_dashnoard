@@ -40,7 +40,7 @@ class LoginController extends Controller
 
         $user = User::where('email',$array['email'])->first();
         if ($user && $user->role != 'admin'){
-            return redirect('/')
+            return redirect('/admin')
                 ->withErrors(['email' =>  'You have not admin access.']);
         }
 
@@ -49,7 +49,7 @@ class LoginController extends Controller
             "email" => 'required|email',]);
 
         if ($validator->fails()) {
-            return redirect('/')
+            return redirect('/admin')
                 ->withErrors($validator)
                 ->withInput();
         }
