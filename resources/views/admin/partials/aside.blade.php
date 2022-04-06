@@ -37,11 +37,17 @@
             <a href="{{route('admin.task.index')}}"><i class="fa fa-server"></i> <span>Task</span></a>
         </li>
 
-        <li>
-            <a href=""><i class="fa fa-cogs"></i> <span>Setting</span></a>
+
+        <li @if(in_array(Route::currentRouteName(),
+            [
+                'admin.setting.index',
+                'admin.setting.create',
+                'admin.setting.show',
+                'admin.setting.edit',
+            ]
+            )) class='active' @endif>
+            <a href="{{route('admin.setting.index')}}"><i class="fa fa-cogs"></i> <span>Setting</span></a>
         </li>
-
-
     </ul>
 </section>
 <!-- /.sidebar -->

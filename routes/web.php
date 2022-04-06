@@ -22,6 +22,7 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('task-start/{taskId}', [App\Http\Controllers\TaskController::class, 'taskStart'])->name('task.start');
 });
 
 
@@ -37,4 +38,5 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::post('/logout', [App\Http\Controllers\Admin\Auth\LogoutController::class, 'logout'])->name('admin.logout');
     Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
     Route::resource('task', App\Http\Controllers\Admin\TaskController::class, ['as' => 'admin']);
+    Route::resource('setting', App\Http\Controllers\Admin\SettingController::class, ['as' => 'admin']);
 });

@@ -10,7 +10,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$task->title}}</h5>
                             <p class="card-text">{{$task->description}}</p>
-                            <a href="#" class="btn btn-primary">Start Task</a>
+                            <a href="{{route('task.start', ['taskId' => $task->id])}}" class="btn btn-primary">Start Task</a>
                         </div>
                     </div>
                 @endforeach
