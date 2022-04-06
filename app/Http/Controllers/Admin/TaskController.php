@@ -37,7 +37,8 @@ class TaskController extends Controller
 
         Task::create([
            'title' => $data['title'],
-           'description' => $data['description']
+           'description' => $data['description'],
+           'required_images' => $data['required_images']
         ]);
 
         return redirect()->route('admin.task.index')->with('message_success', 'Task created successfully.');
@@ -74,7 +75,8 @@ class TaskController extends Controller
 
         $params = [
             'title' => $data['title'],
-            'description' => $data['description']
+            'description' => $data['description'],
+            'required_images' => $data['required_images']
         ];
 
         $task->update($params);

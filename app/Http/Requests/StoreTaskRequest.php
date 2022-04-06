@@ -27,6 +27,7 @@ class StoreTaskRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
+            'required_images' => 'required',
         ];
     }
 }

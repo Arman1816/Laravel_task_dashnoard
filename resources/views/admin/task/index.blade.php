@@ -31,6 +31,7 @@
                                     <th class="th-del">Id</th>
                                     <th class="th-del">Title</th>
                                     <th class="th-del" >Description</th>
+                                    <th class="th-del">Number of required images</th>
                                     <th class="th-del">Action</th>
                                 </tr>
                                 </thead>
@@ -40,6 +41,7 @@
                                             <td class="ui-state-default">{{$task->id}}</td>
                                             <td class="ui-state-default">{{$task->title}}</td>
                                             <td class="ui-state-default">{{$task->description}}</td>
+                                            <td class="ui-state-default">{{$task->required_images}}</td>
                                             <td class="ui-state-default">
                                                 <div class="btn-group">
                                                     <a class="btn btn-info"
@@ -57,6 +59,7 @@
                                     <th rowspan="1" colspan="1">Id</th>
                                     <th rowspan="1" colspan="1">Title</th>
                                     <th rowspan="1" colspan="1">Description</th>
+                                    <th rowspan="1" colspan="1">Number of required images</th>
                                     <th rowspan="1" colspan="1">Action</th>
                                 </tr>
                                 </tfoot>

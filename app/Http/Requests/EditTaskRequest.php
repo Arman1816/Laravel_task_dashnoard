@@ -25,7 +25,8 @@ class EditTaskRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'required_images' => 'required'
         ];
     }
 }

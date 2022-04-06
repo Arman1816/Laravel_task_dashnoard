@@ -29,7 +29,14 @@
                     @if ($errors->has('description'))
                         <span class="help-block"><strong>{{ $errors->first('description') }}</strong></span>
                     @endif
+                </div>
 
+                <div class="form-group {{ $errors->has('required_images') ? ' has-error' : '' }}">
+                    {!! Form::label('required_images', 'Required images:') !!}
+                    {!! Form::number('required_images', $task->required_images, ['class'=>'form-control', 'placeholder'=>'Number of required images' ]) !!}
+                    @if ($errors->has('required_images'))
+                        <span class="help-block"><strong>{{ $errors->first('required_images') }}</strong></span>
+                    @endif
                 </div>
             </div>
 

@@ -1,5 +1,14 @@
 <?php
 
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\Auth\Passwords\Confirm;
+use App\Http\Livewire\Auth\Passwords\Email;
+use App\Http\Livewire\Auth\Passwords\Reset;
+use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\Auth\Verify;
+use App\Http\Livewire\Home;
+use App\Http\Livewire\Task;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,26 +22,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome')->name('home');
+Route::get('password/reset', Email::class)->name('password.request');
+Route::get('password/reset/{token}', Reset::class)->name('password.reset');
 
-Auth::routes();
+Route::middleware('guest')->group(function () {
+    Route::get('login', Login::class)->name('login');
+    Route::get('register', Register::class)->name('register');
+});
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('task-start/{taskId}', [App\Http\Controllers\TaskController::class, 'taskStart'])->name('task.start');
+    Route::get('dashboard', Home::class)->name('dashboard');
+    Route::get('start-task/{taskId}', Task::class)->name('start.task');
+    Route::get('email/verify', Verify::class)->middleware('throttle:6,1')->name('verification.notice');
+    Route::get('password/confirm', Confirm::class)->name('password.confirm');
+    Route::post('logout', LogoutController::class)->name('logout');
 });
-
 
 
 Route::middleware('admin.guest')->prefix('admin')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\Auth\LoginController::class, 'showLogin'])->name('admin.login');
     Route::post('/login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'authenticate'])->name('admin.login');
 });
-
-
 
 Route::middleware('admin')->prefix('admin')->group(function () {
     Route::post('/logout', [App\Http\Controllers\Admin\Auth\LogoutController::class, 'logout'])->name('admin.logout');

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
+            $table->integer('required_images');
             $table->integer('status')->default(0); // 0 - To Do, 1 - Is Progress, 2- Done
             $table->timestamps();
         });
