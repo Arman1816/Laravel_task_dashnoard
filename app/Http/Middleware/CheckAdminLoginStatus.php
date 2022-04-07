@@ -17,7 +17,7 @@ class CheckAdminLoginStatus
     public function handle($request, Closure $next)
     {
         if (!Auth::guard('admin')->check()) {
-            return redirect(url('/'));
+            return redirect(url('/admin'));
         }
         return $next($request);
     }
