@@ -38,8 +38,10 @@ class SettingController extends Controller
 
         Setting::create([
            'app_name' => $data['app_name'],
+           'url' => $data['url'],
            'consumer_key' => $data['consumer_key'],
            'consumer_secret' => $data['consumer_secret'],
+           'token' => $data['token'],
            'active' => $data['active'],
         ]);
 
@@ -78,8 +80,10 @@ class SettingController extends Controller
 
         $params = [
             'app_name' => $data['app_name'],
+            'url' => $data['url'],
             'consumer_key' => $data['consumer_key'],
             'consumer_secret' => $data['consumer_secret'],
+            'token' => $data['token'],
             'active' => $data['active'],
         ];
 

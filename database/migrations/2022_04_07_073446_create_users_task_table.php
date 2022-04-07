@@ -13,18 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('users_task', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('task_id')->index()->unsigned();
-            $table->text('image_path');
+            $table->bigInteger('user_id')->unsigned()->index();
+            $table->bigInteger('task_id')->unsigned()->index();
+            $table->integer('status');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
 
             $table->foreign('task_id')
                 ->references('id')
                 ->on('tasks');
+
         });
-
-
     }
 
     /**
@@ -34,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('users_task');
     }
 };

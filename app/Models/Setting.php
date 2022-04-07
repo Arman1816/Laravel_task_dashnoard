@@ -22,8 +22,10 @@ class Setting extends Model
      */
     protected $fillable = [
         'app_name',
+        'url',
         'consumer_key',
         'consumer_secret',
+        'token',
         'active',
     ];
 }

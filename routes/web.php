@@ -35,6 +35,9 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', Home::class)->name('dashboard');
     Route::get('start-task/{taskId}', Task::class)->name('start.task');
+    Route::get('task-completed/{taskId}', [Task::class, 'taskCompleted'])->name('task.completed');
+    Route::get('search/{search}', [Task::class, 'search'])->name('search');
+    Route::post('add-image-to-task', [Task::class, 'addImageToTask'])->name('add.image.to.task');
     Route::get('email/verify', Verify::class)->middleware('throttle:6,1')->name('verification.notice');
     Route::get('password/confirm', Confirm::class)->name('password.confirm');
     Route::post('logout', LogoutController::class)->name('logout');

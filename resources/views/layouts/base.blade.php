@@ -19,7 +19,6 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ url(mix('css/app.css')) }}">
         @livewireStyles
-
         <!-- Scripts -->
         <script src="{{ url(mix('js/app.js')) }}" defer></script>
 
@@ -29,7 +28,7 @@
 
     <body>
         @yield('body')
-
+        @yield('scripts')
         @livewireScripts
     </body>
 </html>

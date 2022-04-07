@@ -14,52 +14,66 @@
 
             <div id="required_error"></div>
             {!! Form::open(['route' => 'admin.setting.store','enctype'=>"multipart/form-data",'id'=>'form_lang_tab']) !!}
-            <div class="tab-content">
+                <div class="tab-content">
+                    <div class="form-group {{ $errors->has('app_name') ? ' has-error' : '' }}">
+                        {!! Form::label('app_name','App Name:') !!}
+                        {!! Form::text('app_name', old('app_name'), ['class'=>'form-control', 'placeholder'=>'App Name']) !!}
 
-                <div class="form-group {{ $errors->has('app_name') ? ' has-error' : '' }}">
-                    {!! Form::label('app_name','App Name:') !!}
-                    {!! Form::text('app_name', old('app_name'), ['class'=>'form-control', 'placeholder'=>'App Name']) !!}
+                        @if ($errors->has('app_name'))
+                            <span class="help-block"><strong>{{ $errors->first('app_name') }}</strong></span>
+                        @endif
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="form-group {{ $errors->has('url') ? ' has-error' : '' }}">
+                        {!! Form::label('url','Url:') !!}
+                        {!! Form::text('url', old('url'), ['class'=>'form-control', 'placeholder'=>'Url']) !!}
 
-                    @if ($errors->has('app_name'))
-                        <span class="help-block"><strong>{{ $errors->first('app_name') }}</strong></span>
+                        @if ($errors->has('url'))
+                            <span class="help-block"><strong>{{ $errors->first('url') }}</strong></span>
+                        @endif
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="form-group {{ $errors->has('consumer_key') ? ' has-error' : '' }}">
+                        {!! Form::label('consumer_key','Consumer Key:') !!}
+                        {!! Form::text('consumer_key', old('consumer_key'), ['class'=>'form-control', 'placeholder'=>'Consumer Key']) !!}
+
+                        @if ($errors->has('consumer_key'))
+                            <span class="help-block"><strong>{{ $errors->first('consumer_key') }}</strong></span>
+                        @endif
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="form-group {{ $errors->has('consumer_secret') ? ' has-error' : '' }}">
+                        {!! Form::label('consumer_secret','Consumer Secret:') !!}
+                        {!! Form::text('consumer_secret', old('consumer_secret'), ['class'=>'form-control', 'placeholder'=>'Consumer Secret']) !!}
+
+                        @if ($errors->has('consumer_secret'))
+                            <span class="help-block"><strong>{{ $errors->first('consumer_secret') }}</strong></span>
+                        @endif
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="form-group {{ $errors->has('token') ? ' has-error' : '' }}">
+                        {!! Form::label('token','Token:') !!}
+                        {!! Form::text('token', old('token'), ['class'=>'form-control', 'placeholder'=>'Token']) !!}
+
+                        @if ($errors->has('token'))
+                            <span class="help-block"><strong>{{ $errors->first('token') }}</strong></span>
+                        @endif
+                    </div>
+                </div>
+                <div class="form-group {{ $errors->has('active') ? ' has-error' : '' }}">
+                    {!! Form::label('active', 'Active:') !!}
+                    {!! Form::select('active',[1 => 'Active' , 0 => 'InActive'],old('active'),['class'=>'form-control']); !!}
+                    @if ($errors->has('active'))
+                        <span class="help-block"><strong>{{ $errors->first('active') }}</strong></span>
                     @endif
                 </div>
-            </div>
-
-            <div class="tab-content">
-                <div class="form-group {{ $errors->has('consumer_key') ? ' has-error' : '' }}">
-                    {!! Form::label('consumer_key','Consumer Key:') !!}
-                    {!! Form::text('consumer_key', old('consumer_key'), ['class'=>'form-control', 'placeholder'=>'Consumer Key']) !!}
-
-                    @if ($errors->has('consumer_key'))
-                        <span class="help-block"><strong>{{ $errors->first('consumer_key') }}</strong></span>
-                    @endif
+                <div class="form-group">
+                    {{Form::submit('Create', ['class' => 'btn btn-success large'])}}
                 </div>
-            </div>
-
-
-            <div class="tab-content">
-                <div class="form-group {{ $errors->has('consumer_secret') ? ' has-error' : '' }}">
-                    {!! Form::label('consumer_secret','Consumer Secret:') !!}
-                    {!! Form::text('consumer_secret', old('consumer_secret'), ['class'=>'form-control', 'placeholder'=>'Consumer Secret']) !!}
-
-                    @if ($errors->has('consumer_secret'))
-                        <span class="help-block"><strong>{{ $errors->first('consumer_secret') }}</strong></span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="form-group {{ $errors->has('active') ? ' has-error' : '' }}">
-                {!! Form::label('active', 'Active:') !!}
-                {!! Form::select('active',[1 => 'Active' , 0 => 'InActive'],old('active'),['class'=>'form-control']); !!}
-                @if ($errors->has('active'))
-                    <span class="help-block"><strong>{{ $errors->first('active') }}</strong></span>
-                @endif
-            </div>
-            <div class="form-group">
-                {{Form::submit('Create', ['class' => 'btn btn-success large'])}}
-            </div>
-
             {!! Form::close() !!}
 
         </section>

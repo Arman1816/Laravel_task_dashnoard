@@ -16,8 +16,10 @@ return new class extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->string('app_name');
+            $table->string('url');
             $table->string('consumer_key');
             $table->string('consumer_secret');
+            $table->text('token')->nullable();
             $table->integer('active')->default(0);
             $table->timestamps();
         });

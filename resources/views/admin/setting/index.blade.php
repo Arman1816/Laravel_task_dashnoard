@@ -30,6 +30,7 @@
                                 <tr role="row">
                                     <th class="th-del">Id</th>
                                     <th class="th-del">App Name</th>
+                                    <th class="th-del">Url</th>
                                     <th class="th-del" >Consumer Key</th>
                                     <th class="th-del" >Consumer Secret</th>
                                     <th class="th-del" >Active</th>
@@ -41,6 +42,7 @@
                                         <tr data-id="{{ $setting->id}}" role="row" class="odd">
                                             <td class="ui-state-default">{{$setting->id}}</td>
                                             <td class="ui-state-default">{{$setting->app_name}}</td>
+                                            <td class="ui-state-default">{{$setting->url}}</td>
                                             <td class="ui-state-default">{{$setting->consumer_key}}</td>
                                             <td class="ui-state-default">{{$setting->consumer_secret}}</td>
                                             <td class="ui-state-default">{{$setting->active}}</td>
@@ -60,6 +62,7 @@
                                 <tr>
                                     <th rowspan="1" colspan="1">Id</th>
                                     <th rowspan="1" colspan="1">App Name</th>
+                                    <th rowspan="1" colspan="1">Url</th>
                                     <th rowspan="1" colspan="1">Consumer Key</th>
                                     <th rowspan="1" colspan="1">Consumer Secret</th>
                                     <th rowspan="1" colspan="1">Active</th>
@@ -83,6 +86,7 @@
     </section>
     <!-- /.content -->
 @endsection
+
 
 
 

@@ -4,7 +4,7 @@
         <div class="relative flex items-center justify-between h-16">
             <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="flex-shrink-0">
-                    Staff Dashboard
+                    <a href="{{route('dashboard')}}">Dashboard</a>
                 </div>
                 <div class="hidden sm:block sm:ml-6">
                     <div class="leading-5 relative mt-3 md:mt-0" x-data="{ isOpen: true }" @click.away="isOpen = false">

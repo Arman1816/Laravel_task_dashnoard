@@ -25,4 +25,23 @@ class Task extends Model
         'required_images',
         'status'
     ];
+
+
+    /**
+     * Get the images for the task.
+     */
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
+    /**
+     * @param $taskId
+     * @param $status
+     */
+    public static function updateTaskStatus($taskId, $status)
+    {
+        self::where('id', '=', $taskId)->update(['status' => $status]);
+    }
+
 }

@@ -25,6 +25,7 @@ class EditSettingRequest extends FormRequest
     {
         return [
             'app_name' => 'required',
+            'url' => 'required',
             'consumer_key' => 'required',
             'consumer_secret' => 'required',
             'active' => 'required',
